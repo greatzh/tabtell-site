@@ -246,27 +246,17 @@ h1 span {
 
 .trust-list {
   margin: 26px 0 0;
-  padding: 0;
+  padding-left: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 22px;
+  gap: 10px 32px;
   color: #66726e;
-  list-style: none;
+  list-style: circle;
   font-size: 12px;
 }
 
 .trust-list li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.trust-list li::before {
-  width: 7px;
-  height: 7px;
-  border: 1px solid var(--brand);
-  border-radius: 50%;
-  content: "";
+  padding-left: 0;
 }
 
 .hero-visual {
