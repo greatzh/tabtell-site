@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TabTell Privacy / 隐私</title>
+    <link rel="icon" href="icons/action/icon32.png">
+    <link rel="stylesheet" href="options.css?v=3.0.0">
+    <style>
+      .privacy-brand {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .privacy-nav-link {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        border: 1px solid #d3e1dd;
+        border-radius: 9px;
+        padding: 10px 11px;
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 680;
+        text-decoration: none;
+      }
+
+      .privacy-nav-link:focus-visible,
+      .privacy-back-link:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .privacy-card-list {
+        margin-top: 18px;
+      }
+
+      .privacy-card-list .config-card {
+        display: block;
+      }
+
+      .privacy-card-list h2 {
+        margin: 0 0 7px;
+        font-size: 16px;
+        letter-spacing: -.015em;
+      }
+
+      .privacy-card-list p {
+        max-width: 780px;
+      }
+
+      .privacy-card-list ul {
+        margin: 10px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.68;
+      }
+
+      .privacy-card-list li + li {
+        margin-top: 5px;
+      }
+
+      .privacy-card-list a,
+      .privacy-meta a {
+        color: var(--accent-strong);
+        text-underline-offset: 3px;
+      }
+
+      .privacy-meta {
+        margin: 11px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.65;
+      }
+
+      .privacy-provider-list {
+        columns: 2;
+        column-gap: 30px;
+      }
+
+      .privacy-provider-list li {
+        break-inside: avoid;
+      }
+
+      .privacy-english {
+        margin-top: 42px;
+      }
+
+      .privacy-back-link {
+        display: inline-flex;
+        margin-top: 24px;
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 680;
+        text-decoration: none;
+      }
+
+      .privacy-back-link:hover,
+      .privacy-nav-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 760px) {
+        .privacy-nav-link {
+          justify-content: center;
+        }
+
+        .privacy-provider-list {
+          columns: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="settings-shell">
+      <aside class="settings-nav">
+        <a class="brand privacy-brand" href="../" aria-label="返回 TabTell 首页 / Back to TabTell home">
+          <img class="brand-mark" src="icons/action/icon48.png?v=3.0.0-icon4" alt="" width="38" height="38">
+          <div><strong>TabTell</strong><small>Privacy / 隐私</small></div>
+        </a>
+        <p class="nav-label">TabTell</p>
+        <nav aria-label="隐私页面导航 / Privacy page navigation">
+          <a class="privacy-nav-link" href="../">← Home / 返回首页</a>
+        </nav>
+        <p class="privacy-note">TabTell 没有开发者运营的中转服务器。<br>TabTell does not operate a developer-controlled relay server.</p>
+      </aside>
+
+      <section class="settings-content">
+        <section class="settings-section" lang="zh-CN" aria-labelledby="privacyTitleZh">
+          <header class="section-heading">
+            <div>
+              <p class="eyebrow">隐私政策 · 2026-07-28</p>
+              <h1 id="privacyTitleZh">你的内容由你选择发送到哪里</h1>
+              <p>TabTell 由一名位于香港特别行政区的个人开发者运营。本政策适用于 TabTell Chrome 扩展程序。</p>
+            </div>
+          </header>
+
+          <div class="concept-card">
+            <strong>简要说明</strong>
+            <p>API Key、设置、Skills、网页快照和逐页对话保存在当前浏览器中。TabTell 没有中转服务器或云端账户；只有在你主动发起 AI 操作后，所需数据才会直达你选择的模型接口。</p>
+            <p class="privacy-meta">本政策参考了 <a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank" rel="noreferrer">TermsFeed Privacy Policy Generator</a> 的结构，并按照 TabTell 已核对的代码和数据流进行了修订。模板不构成法律建议。</p>
+          </div>
+
+          <div class="card-list privacy-card-list">
+            <article class="config-card">
+              <div>
+                <h2>1. 保存在浏览器中的数据</h2>
+                <p>API Key 可以由你选择仅保存在 <code>chrome.storage.session</code>，或持久保存在 <code>chrome.storage.local</code>。模型设置、快捷处理、界面偏好和导入的 Skills 保存在 <code>chrome.storage.local</code>。网页快照、用户编辑后的原文、逐页对话、模型选择和上下文状态保存在扩展的本地 IndexedDB；IndexedDB 不可用时可能使用本地存储作为备用。</p>
+                <p>这些数据不会同步到 TabTell 服务器。TabTell 不会对它们再做一层应用内加密，请保护好浏览器配置文件、操作系统账户和设备。</p>
+                <p>配置备份包含模型供应商与已选模型、快捷处理、Skills 和界面偏好，不含 API Key、网页正文或对话。自定义供应商名称与地址、快捷处理提示词、Skill 指令和文字参考资料会进入备份；这些字段可能含有敏感信息，分享或保管文件前请先检查。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>2. 数据什么时候会离开浏览器</h2>
+                <p>第一次使用时，TabTell 会在读取网页前展示数据说明并等待确认。你可以选择授予可选的网站访问权限，让 TabTell 在侧边栏打开期间自动跟随普通网页；拒绝后，TabTell 会尽量只处理通过浏览器主动授权的当前页面。读取和保存页面不会自动把网页内容发送给模型。只有当你发送问题、点击快捷处理、测试模型连接或主动执行其他 AI 操作时，浏览器才会发送完成该操作所需的数据。</p>
+                <ul>
+                  <li>可能发送网页标题、URL、正文、图片链接和用户编辑后的原文。</li>
+                  <li>可能发送问题、当前对话、快捷处理或 Skill 指令、模型名称和生成参数。</li>
+                  <li>只有在测试连接或通过所选供应商发起 AI 请求时，API Key 才会直接发送给该供应商或自定义接口用于鉴权；不会发送给 TabTell 开发者。</li>
+                </ul>
+                <p>网页和对话可能含有个人、保密或敏感信息。发送前请确认你有权处理这些内容，并检查所选供应商和账户方案的数据规则。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>3. 自动 Skill 选择</h2>
+                <p>自动 Skill 模式只会在你主动发起 AI 请求后运行。第三方 Skill 导入后默认仅手动使用，除非你之后明确允许自动匹配。TabTell 可能先把当前问题、页面标题和候选 Skill 的名称、简介发送给所选模型，用于判断是否需要某个 Skill。选中后，相关文字指令和有限的文字参考资料可能进入正式请求。</p>
+                <p>TabTell 不会执行导入 Skill 包里的脚本、Shell 命令、MCP 声明或平台专属权限。你可以手动指定 Skill，也可以为下一条消息关闭 Skill。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>4. 读取用户输入的 URL</h2>
+                <p>当你要求 TabTell 读取一个明确输入的 URL 时，浏览器会直接连接该网站，并可能使用当前浏览器会话。TabTell 不读取或保存 Cookie 的原始值，但目标网站可能收到 IP 地址、普通浏览器请求信息，以及浏览器自动附带的现有会话凭据。该网站按自己的政策处理这些请求。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>5. 第三方模型供应商</h2>
+                <p>供应商的地区、API 产品和账户方案可能采用不同的数据保留、人工审查、模型训练和跨境处理规则。实际处理方式以对应的 API 条款、隐私说明、数据处理条款和控制台设置为准。</p>
+                <ul class="privacy-provider-list">
+                  <li><a href="https://docs.bigmodel.cn/cn/terms/privacy-policy" target="_blank" rel="noreferrer">智谱 AI / BigModel</a></li>
+                  <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-privacy-policy.html" target="_blank" rel="noreferrer">DeepSeek</a></li>
+                  <li><a href="https://openai.com/policies/row-privacy-policy/" target="_blank" rel="noreferrer">OpenAI</a></li>
+                  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Gemini</a></li>
+                  <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer">Anthropic</a></li>
+                  <li><a href="https://help.aliyun.com/zh/document_detail/2705225.html" target="_blank" rel="noreferrer">千问 / 阿里云百炼</a></li>
+                  <li><a href="https://platform.kimi.com/docs/agreement/userprivacy" target="_blank" rel="noreferrer">Kimi / Moonshot AI</a></li>
+                  <li><a href="https://openrouter.ai/privacy/" target="_blank" rel="noreferrer">OpenRouter</a></li>
+                  <li><a href="https://docs.siliconflow.cn/cn/legals/privacy-policy" target="_blank" rel="noreferrer">硅基流动</a></li>
+                  <li><a href="https://www.volcengine.com/docs/6256/64902?lang=zh" target="_blank" rel="noreferrer">火山引擎方舟</a></li>
+                </ul>
+                <p>自定义接口由用户决定。请自行核对接口运营者、部署位置和隐私规则。TabTell 无法控制或删除第三方已经收到的数据。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>6. TabTell 不会做什么</h2>
+                <p>TabTell 对通过 Chrome 扩展权限获得的信息的使用遵守 Chrome Web Store User Data Policy，包括 Limited Use 要求。</p>
+                <p>当前版本没有 TabTell 后端或云端账户，不投放广告，不加入产品分析、行为追踪、广告追踪或崩溃上报，不出售、出租或交换用户数据，也不会把网页、对话或 API Key 用于 TabTell 自己的模型训练。扩展不处理付款信息，也不在内部完成购买交易。</p>
+                <p>自愿支持款项由用户选择的外部支持服务或开发者直接处理。Google 不是这些款项的卖方或支付处理方；支持不会解锁功能，也不会影响产品体验、更新或评价。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>7. 保留、导出和删除</h2>
+                <p>逐页对话和网页快照会持续保留在本地，当前版本不会自动设置过期时间。你可以复制内容、下载 Markdown，或通过配置备份在不同设备间迁移模型供应商与已选模型、快捷处理、Skills 和界面偏好。配置备份不含 API Key、网页正文或对话。</p>
+                <p>你也可以删除当前网页记录、删除全部网页记录，或在设置中清除 API Key、提供商设置、快捷处理、导入的 Skill 和全部本地数据。</p>
+                <p>你也可以在 <code>chrome://extensions</code> 中移除 TabTell。卸载前请先导出需要保留的内容。开发者无法远程查看、恢复或删除只在你设备上的数据；卸载也不会删除第三方已经收到的数据。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>8. 安全与跨境处理</h2>
+                <p>内置远程接口使用 HTTPS，远程自定义接口也必须使用 HTTPS。HTTP 只允许连接 <code>localhost</code>、<code>127.0.0.1</code> 或 <code>[::1]</code> 本机回环地址，且 TabTell 不会通过本机 HTTP 发送 API Key。模型供应商或自定义接口可能位于你所在地区之外，相关数据可能在其他国家或地区处理。</p>
+                <p>任何本地存储或网络传输都无法保证绝对安全。建议限制 API Key 权限、定期轮换密钥，并在发现异常时到供应商控制台撤销密钥。</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>9. 未成年人、更新与联系</h2>
+                <p>TabTell 不面向未达到当地独立同意年龄的儿童。未成年人应在父母或监护人同意和指导下使用，并遵守所选供应商的年龄要求。</p>
+                <p>数据处理方式变化时，本政策会更新；会改变数据类型、用途或接收方范围的更新也会在扩展或发布说明中说明。</p>
+                <ul>
+                  <li>邮箱：<a href="mailto:iamzhzhang@gmail.com">iamzhzhang@gmail.com</a></li>
+                      <li>网站：<a href="../">TabTell</a></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="settings-section privacy-english" lang="en" aria-labelledby="privacyTitleEn">
+          <header class="section-heading">
+            <div>
+              <p class="eyebrow">Privacy Policy · July 28, 2026</p>
+              <h1 id="privacyTitleEn">You choose where your content is sent</h1>
+              <p>TabTell is operated by an individual developer based in Hong Kong SAR. This policy applies to the TabTell Chrome extension.</p>
+            </div>
+          </header>
+
+          <div class="concept-card">
+            <strong>In brief</strong>
+            <p>API keys, settings, Skills, page snapshots, and page-scoped conversations stay in the current browser. TabTell has no relay server or cloud account. Data needed for an AI request is sent directly to the endpoint you select only after you start that request.</p>
+            <p class="privacy-meta">This policy was prepared with the help of the <a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank" rel="noreferrer">TermsFeed Privacy Policy Generator</a> and revised to match TabTell's verified code and data flows. The template is not legal advice.</p>
+          </div>
+
+          <div class="card-list privacy-card-list">
+            <article class="config-card">
+              <div>
+                <h2>1. Data stored in the browser</h2>
+                <p>API keys can be kept only in <code>chrome.storage.session</code> or persisted in <code>chrome.storage.local</code>, depending on your choice. Provider settings, quick actions, interface preferences, and imported Skills are stored in <code>chrome.storage.local</code>. Page snapshots, edited source text, page-scoped conversations, model selections, and context state are stored in local IndexedDB, with local storage as a possible fallback.</p>
+                <p>This data is not synced to a TabTell server. TabTell does not add application-level encryption, so the protections of the browser profile, operating-system account, and device still matter.</p>
+                <p>Configuration backups contain provider and model selections, quick actions, Skills, and interface preferences. They do not contain API keys, webpage text, or conversations. Custom provider names and endpoints, quick-action prompts, Skill instructions, and readable text resources are included and may contain sensitive information. Review a backup before sharing or storing it.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>2. When data leaves the browser</h2>
+                <p>On first use, TabTell shows an in-product data disclosure and waits for confirmation before reading a webpage. You can grant optional website access so TabTell follows ordinary webpages while the side panel is open. If that permission is declined, TabTell limits itself to pages explicitly authorized by the browser where possible. Reading and saving a page does not automatically send its content to a model. Data is transmitted only after you send a question, choose a quick action, test a provider connection, or explicitly start another AI operation.</p>
+                <ul>
+                  <li>A request may include the page title, URL, text, image links, and source text you edited.</li>
+                  <li>It may include your question, current conversation, quick-action or Skill instructions, model name, and generation parameters.</li>
+                  <li>Your API key is sent directly to the selected provider or custom endpoint only when you test that connection or make an AI request through it, and only for authentication. It is not sent to the TabTell developer.</li>
+                </ul>
+                <p>Pages and conversations may contain personal, confidential, or sensitive information. Confirm that you may process the content and that the provider and account plan meet your requirements before sending it.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>3. Automatic Skill selection</h2>
+                <p>Automatic Skill routing runs only after you start an AI request. Third-party Skills are manual-only when imported unless you later enable automatic matching. TabTell may first send the current question, page title, and candidate Skill names and descriptions to the selected model. If a Skill is selected, its text instructions and a limited set of readable text resources may enter the main request.</p>
+                <p>TabTell does not execute scripts, shell commands, MCP declarations, or platform-specific permissions found in imported Skill packages. You can select a Skill manually or disable Skills for the next message.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>4. Reading a URL you enter</h2>
+                <p>When you ask TabTell to read an explicitly entered URL, the browser connects directly to that website and may use the current browser session. TabTell does not read or retain raw cookie values, but the destination may receive the IP address, ordinary browser request information, and existing session credentials automatically attached by the browser. The destination handles the request under its own policies.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>5. Third-party model providers</h2>
+                <p>Retention, human review, model training, and international transfers can differ by provider, region, API product, and account plan. The applicable API terms, privacy notice, data-processing terms, console settings, and account plan govern each provider's actual handling.</p>
+                <ul class="privacy-provider-list">
+                  <li><a href="https://docs.bigmodel.cn/cn/terms/privacy-policy" target="_blank" rel="noreferrer">Zhipu AI / BigModel</a></li>
+                  <li><a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html" target="_blank" rel="noreferrer">DeepSeek</a></li>
+                  <li><a href="https://openai.com/policies/row-privacy-policy/" target="_blank" rel="noreferrer">OpenAI</a></li>
+                  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Gemini</a></li>
+                  <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer">Anthropic</a></li>
+                  <li><a href="https://help.aliyun.com/zh/document_detail/2705225.html" target="_blank" rel="noreferrer">Alibaba Cloud Qwen</a></li>
+                  <li><a href="https://platform.kimi.com/docs/agreement/userprivacy" target="_blank" rel="noreferrer">Kimi / Moonshot AI</a></li>
+                  <li><a href="https://openrouter.ai/privacy/" target="_blank" rel="noreferrer">OpenRouter</a></li>
+                  <li><a href="https://docs.siliconflow.cn/en/legals/privacy-policy" target="_blank" rel="noreferrer">SiliconFlow</a></li>
+                  <li><a href="https://www.volcengine.com/docs/6256/64902?lang=zh" target="_blank" rel="noreferrer">Volcengine Ark</a></li>
+                </ul>
+                <p>You choose any custom endpoint and are responsible for checking its operator, hosting location, and privacy practices. TabTell cannot control or delete data already received by a third party.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>6. What TabTell does not do</h2>
+                <p>TabTell's use of information obtained through Chrome extension permissions complies with the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+                <p>The current version has no TabTell backend or cloud account. It contains no advertising, product analytics, behavioral tracking, advertising trackers, or crash reporting. It does not sell, rent, or trade user data, use pages, conversations, or API keys to train a TabTell model, process payment information, or complete purchases inside the extension.</p>
+                <p>Voluntary support payments are handled directly by the external support service selected by the user or by the developer. Google is not the seller or payment processor for these payments. Support does not unlock features or affect the product experience, updates, or reviews.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>7. Retention, export, and deletion</h2>
+                <p>Page conversations and snapshots remain locally without automatic expiration. You can copy content, download Markdown, or use configuration backup to move provider and model selections, quick actions, Skills, and interface preferences between devices. Configuration backups do not contain API keys, webpage text, or conversations.</p>
+                <p>You can also delete the current page record, delete all page records, or clear API keys, provider settings, quick actions, imported Skills, and all local TabTell data from settings.</p>
+                <p>You can also remove TabTell from <code>chrome://extensions</code>. Export anything you want to keep first. The developer cannot remotely view, recover, or erase data stored only on your device. Uninstalling does not delete data already sent to a third party.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>8. Security and international processing</h2>
+                <p>Built-in remote endpoints use HTTPS, and remote custom endpoints must also use HTTPS. HTTP is accepted only for the local loopback addresses <code>localhost</code>, <code>127.0.0.1</code>, and <code>[::1]</code>. TabTell does not send an API key over local HTTP. Providers or custom endpoints may process data outside your jurisdiction.</p>
+                <p>No storage or transmission method is completely secure. Limit API-key permissions, rotate keys when appropriate, and revoke a key in the provider console if misuse is suspected.</p>
+              </div>
+            </article>
+
+            <article class="config-card">
+              <div>
+                <h2>9. Minors, changes, and contact</h2>
+                <p>TabTell is not directed to children below the age at which they may independently consent under applicable law. Minors should use it only with a parent or guardian's permission and guidance and must also meet the selected provider's age requirements.</p>
+                <p>This policy will be updated when TabTell's data handling changes. Changes to data categories, purposes, or recipients will also be disclosed in the extension or release notes.</p>
+                <ul>
+                  <li>Email: <a href="mailto:iamzhzhang@gmail.com">iamzhzhang@gmail.com</a></li>
+                      <li>Website: <a href="../">TabTell</a></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <a class="privacy-back-link" href="../">← Back home / 返回首页</a>
+        </section>
+      </section>
+    </main>
+
+  </body>
+</html>
