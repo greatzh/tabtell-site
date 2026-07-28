@@ -38,7 +38,6 @@ const COPY = {
       "在支持读取的网页上发起 AI 对话，让信息检索、阅读和创作更直接。问题和原文留在同一份上下文里。",
     guideCta: "5 分钟上手",
     storeStatus: "Chrome Web Store · 准备上线",
-    fullGuide: "打开完整使用指南",
     trust: ["自带 API Key", "记录保存在浏览器", "无中转服务器"],
     quickstartTitle: "第一次使用，只需要三步",
     quickstart: [
@@ -164,7 +163,6 @@ const COPY = {
       "Start an AI conversation on supported webpages. Keep retrieval, reading, and writing grounded in the source already open in your tab.",
     guideCta: "Start in 5 minutes",
     storeStatus: "Chrome Web Store · Coming soon",
-    fullGuide: "Open the complete guide",
     trust: ["Bring your own API key", "Records stay in this browser", "No relay server"],
     quickstartTitle: "Your first conversation takes three steps",
     quickstart: [
@@ -358,14 +356,6 @@ export default function Home() {
             </a>
             <span className="store-status">{copy.storeStatus}</span>
           </div>
-          <a
-            className="guide-inline-link"
-            href={guideHref}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {copy.fullGuide}
-          </a>
           <ul className="trust-list" aria-label={copy.trust.join("、")}>
             {copy.trust.map((item) => (
               <li key={item}>{item}</li>

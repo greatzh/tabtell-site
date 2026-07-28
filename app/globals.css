@@ -244,17 +244,8 @@ h1 span {
   background: transparent;
 }
 
-.guide-inline-link {
-  display: inline-block;
-  margin-top: 20px;
-  color: var(--brand-dark);
-  font-size: 14px;
-  font-weight: 760;
-  text-underline-offset: 5px;
-}
-
 .trust-list {
-  margin: 30px 0 0;
+  margin: 26px 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
