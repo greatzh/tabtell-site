@@ -50,8 +50,8 @@ const COPY = {
         },
         {
           index: "02",
-          title: "让正式域名全程使用 HTTPS",
-          body: "等待 GitHub Pages 完成证书签发，开启强制 HTTPS，并复核产品页和隐私政策地址。",
+          title: "准备审核复现路径",
+          body: "使用低额度、可单独撤销的审核 Key，补充从首次授权到网页总结的测试步骤，并确保密钥不进入公开资料。",
         },
         {
           index: "03",
@@ -142,8 +142,8 @@ const COPY = {
         },
         {
           index: "02",
-          title: "Serve the public domain over HTTPS",
-          body: "Wait for GitHub Pages certificate provisioning, enforce HTTPS, and recheck the product and privacy-policy URLs.",
+          title: "Prepare a reproducible reviewer flow",
+          body: "Provide a low-quota, separately revocable review key and steps from first-run consent to page summarization without placing the key in public files.",
         },
         {
           index: "03",
