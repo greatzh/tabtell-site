@@ -54,6 +54,7 @@ type GuideCopy = {
   footer: {
     title: string;
     body: string;
+    install: string;
     home: string;
     privacy: string;
     developer: string;
@@ -61,6 +62,8 @@ type GuideCopy = {
 };
 
 const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+const STORE_URL =
+  "https://chromewebstore.google.com/detail/tabtell/meapdcifnfnkaceamkbjoebohiippbeo";
 
 function sitePath(path: string): string {
   return `${BASE_PATH}${path}`;
@@ -89,7 +92,7 @@ const COPY: Record<Language, GuideCopy> = {
       title: "从安装到第一次对话，\n每一步都在这里。",
       intro:
         "先连接自己的模型，再打开一个网页。TabTell 会把当前页面的正文放进侧边栏，之后的提问、总结、翻译和写作都围绕这份原文继续。",
-      start: "从安装开始",
+      start: "从 Chrome 商店安装",
       badges: ["约 5 分钟上手", "自带 API Key", "数据保存在浏览器"],
       indexLabel: "八个章节",
     },
@@ -104,12 +107,12 @@ const COPY: Record<Language, GuideCopy> = {
         eyebrow: "先把侧边栏打开",
         title: "安装 TabTell，固定到工具栏",
         intro:
-          "正式版上线后，可以从 Chrome Web Store 直接安装。发布前的本地测试版也能通过开发者模式载入。",
+          "TabTell 3.0 已在 Chrome Web Store 上线，可以直接安装。需要调试本地版本时，也能通过开发者模式载入。",
         steps: [
           {
             title: "从商店安装",
             body:
-              "在 Chrome Web Store 打开 TabTell，点击「添加至 Chrome」。审核通过前，商店按钮会保持为准备上线状态。",
+              "打开 TabTell 的 Chrome Web Store 页面，点击「添加至 Chrome」，再确认浏览器显示的权限。",
           },
           {
             title: "本地载入测试版",
@@ -462,6 +465,7 @@ const COPY: Record<Language, GuideCopy> = {
       title: "准备好后，打开一个网页试试。",
       body:
         "先连接模型，再从快速总结开始。完成第一条任务后，直接追问就是一段普通的网页对话。",
+      install: "安装 TabTell",
       home: "返回首页",
       privacy: "查看隐私政策",
       developer: "由 imzh 开发",
@@ -477,7 +481,7 @@ const COPY: Record<Language, GuideCopy> = {
       title: "From installation to\nyour first conversation.",
       intro:
         "Connect your own model, open a webpage, and keep the source beside the conversation. Questions, summaries, translations, and drafts all stay grounded in that page.",
-      start: "Start with installation",
+      start: "Install from the Chrome Web Store",
       badges: ["About 5 minutes", "Bring your own API key", "Browser-local data"],
       indexLabel: "Eight chapters",
     },
@@ -492,12 +496,12 @@ const COPY: Record<Language, GuideCopy> = {
         eyebrow: "Open the side panel",
         title: "Install TabTell and pin it to the toolbar",
         intro:
-          "Once the public listing is live, install TabTell directly from the Chrome Web Store. A local test build can also be loaded in developer mode.",
+          "TabTell 3.0 is now available in the Chrome Web Store. You can also load a local build in developer mode when testing changes.",
         steps: [
           {
             title: "Install from the store",
             body:
-              "Open the TabTell listing in the Chrome Web Store and choose Add to Chrome. Until review is complete, the store action remains marked as coming soon.",
+              "Open the TabTell listing in the Chrome Web Store, choose Add to Chrome, and review the permissions shown by the browser.",
           },
           {
             title: "Load a local test build",
@@ -859,6 +863,7 @@ const COPY: Record<Language, GuideCopy> = {
       title: "When ready, open a page and try it.",
       body:
         "Connect a model and begin with Quick Summary. After that first task, keep asking questions as a normal webpage conversation.",
+      install: "Install TabTell",
       home: "Back to home",
       privacy: "Read the privacy policy",
       developer: "Built by imzh",
@@ -933,9 +938,14 @@ export default function GuidePage() {
           <p className={styles.eyebrow}>{copy.hero.eyebrow}</p>
           <h1>{copy.hero.title}</h1>
           <p className={styles.heroIntro}>{copy.hero.intro}</p>
-          <a className={styles.primaryLink} href="#install">
+          <a
+            className={styles.primaryLink}
+            href={STORE_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             {copy.hero.start}
-            <span aria-hidden="true">↓</span>
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
 
@@ -1065,6 +1075,9 @@ export default function GuidePage() {
           <p>{copy.footer.body}</p>
         </div>
         <div className={styles.closingLinks}>
+          <a href={STORE_URL} target="_blank" rel="noreferrer">
+            {copy.footer.install}
+          </a>
           <a href={sitePath("/")}>{copy.footer.home}</a>
           <a href={sitePath("/privacy/")}>{copy.footer.privacy}</a>
         </div>

@@ -36,27 +36,27 @@ const COPY = {
     titleAccent: "先把基础做牢。",
     intro:
       "这里不写发布日期，也不提前承诺没有开始的功能。路线图只列出发布检查、兼容性验证和长期维护中已经明确的工作。",
-    statusLabel: "当前焦点",
-    statusValue: "Chrome Web Store 首发",
+    statusLabel: "发布状态",
+    statusValue: "3.0.0 已上线",
     inProgress: {
-      marker: "Now",
-      title: "正在进行",
-      intro: "这些工作直接关系到 3.0.0 能否稳定上线。",
+      marker: "Shipped",
+      title: "首发完成",
+      intro: "商店提交、审核复现和最终发布包复测已经完成。",
       items: [
         {
           index: "01",
-          title: "完成 Chrome Web Store 提交",
-          body: "注册并验证开发者账号，补齐商店资料、隐私表单、权限说明和发布者身份信息。",
+          title: "Chrome Web Store 正式发布",
+          body: "TabTell 3.0.0 已在 Chrome Web Store 上线，可以直接安装。",
         },
         {
           index: "02",
-          title: "准备审核复现路径",
-          body: "使用低额度、可单独撤销的审核 Key，补充从首次授权到网页总结的测试步骤，并确保密钥不进入公开资料。",
+          title: "审核流程可以复现",
+          body: "从首次授权、连接模型到网页总结的测试路径已经补齐，审核凭据没有进入公开资料。",
         },
         {
           index: "03",
-          title: "安装最终发布包再测一次",
-          body: "在全新 Chrome 配置中安装准确的 3.0.0 ZIP，检查首次授权、网页读取、模型连接和 Markdown 下载。",
+          title: "最终发布包通过复测",
+          body: "3.0.0 发布包完成首次授权、网页读取、模型连接和 Markdown 下载检查。",
         },
       ],
     },
@@ -113,7 +113,7 @@ const COPY = {
     boundaryTitle: "路线图只写已经排进工作的事项。",
     boundaryBody:
       "账号、云同步、订阅或团队功能目前没有进入这份路线图。若方向发生变化，会在开始实施后再公开说明。",
-    changelogLink: "查看 3.0 开发记录",
+    changelogLink: "查看 3.0 发布记录",
     footerNote: "Ask the current page.",
   },
   en: {
@@ -128,27 +128,27 @@ const COPY = {
     titleAccent: "make the foundation solid.",
     intro:
       "There are no promised dates or features that have not started. This roadmap covers concrete release checks, compatibility work, and ongoing maintenance.",
-    statusLabel: "Current focus",
-    statusValue: "Chrome Web Store launch",
+    statusLabel: "Release status",
+    statusValue: "3.0.0 is live",
     inProgress: {
-      marker: "Now",
-      title: "In progress",
-      intro: "These items directly affect whether 3.0.0 can launch reliably.",
+      marker: "Shipped",
+      title: "First release complete",
+      intro: "Store submission, reviewer reproduction, and final-package checks are complete.",
       items: [
         {
           index: "01",
-          title: "Complete the Chrome Web Store submission",
-          body: "Verify the developer account and finish store copy, privacy forms, permission explanations, and publisher identity details.",
+          title: "Published in the Chrome Web Store",
+          body: "TabTell 3.0.0 is live in the Chrome Web Store and ready to install.",
         },
         {
           index: "02",
-          title: "Prepare a reproducible reviewer flow",
-          body: "Provide a low-quota, separately revocable review key and steps from first-run consent to page summarization without placing the key in public files.",
+          title: "Reproducible review flow",
+          body: "The path from first-run consent and model setup to page summarization is documented without exposing review credentials.",
         },
         {
           index: "03",
-          title: "Test the final release package again",
-          body: "Install the exact 3.0.0 ZIP in a clean Chrome profile and verify first-run consent, page access, model connection, and Markdown downloads.",
+          title: "Final package verified",
+          body: "The 3.0.0 package passed checks for consent, page access, model connection, and Markdown downloads.",
         },
       ],
     },
@@ -205,7 +205,7 @@ const COPY = {
     boundaryTitle: "Only scheduled work belongs on this page.",
     boundaryBody:
       "Accounts, cloud sync, subscriptions, and team features are not on this roadmap. If that changes, they will be documented after implementation begins.",
-    changelogLink: "Read the 3.0 development log",
+    changelogLink: "Read the 3.0 release notes",
     footerNote: "Ask the current page.",
   },
 } as const;

@@ -35,10 +35,11 @@ const COPY = {
     titleLead: "从网页提取器，",
     titleAccent: "走到 3.0。",
     intro:
-      "TabTell 3.0.0 是准备提交 Chrome Web Store 的发布候选。更早的版本记录的是开发过程，没有作为 TabTell 在商店公开发布。",
+      "TabTell 3.0.0 已在 Chrome Web Store 正式发布。这是第一个公开商店版本，更早的版本记录的是开发过程。",
     releaseLabel: "当前版本",
-    releaseStatus: "发布候选",
-    releaseDate: "构建于 2026.07.28",
+    releaseStatus: "正式发布",
+    releaseBadge: "LIVE",
+    releaseDate: "发布于 2026.07.30",
     releaseTitle: "TabTell 3.0.0",
     releaseIntro:
       "这次更新把逐页对话、模型配置、快捷处理、Skills 和数据管理收进同一套产品结构，也完成了新的名称、图标与双语界面。",
@@ -136,9 +137,9 @@ const COPY = {
       },
     ],
     nextKicker: "What is next",
-    nextTitle: "现在，先把 3.0 稳稳送进商店。",
+    nextTitle: "3.0 上线后，继续处理真实使用中的问题。",
     nextBody:
-      "路线图只记录已经排进发布检查和维护计划的工作，不提前挂名没有开始的功能。",
+      "接下来会继续检查供应商接口、复杂网页、无障碍操作和 Skills 兼容性。已经完成的工作会移进更新日志。",
     nextLink: "查看路线图",
     footerNote: "Ask the current page.",
   },
@@ -153,10 +154,11 @@ const COPY = {
     titleLead: "From a page extractor",
     titleAccent: "to TabTell 3.0.",
     intro:
-      "TabTell 3.0.0 is the release candidate being prepared for the Chrome Web Store. Earlier versions were development milestones, not public TabTell store releases.",
+      "TabTell 3.0.0 is now available in the Chrome Web Store. It is the first public store release; earlier versions were development milestones.",
     releaseLabel: "Current version",
-    releaseStatus: "Release candidate",
-    releaseDate: "Built 2026.07.28",
+    releaseStatus: "Public release",
+    releaseBadge: "LIVE",
+    releaseDate: "Released 2026.07.30",
     releaseTitle: "TabTell 3.0.0",
     releaseIntro:
       "This release brings page-scoped conversations, model setup, quick actions, Skills, and data controls into one product structure, alongside a new name, icon, and bilingual interface.",
@@ -254,9 +256,9 @@ const COPY = {
       },
     ],
     nextKicker: "What is next",
-    nextTitle: "First, get 3.0 safely into the store.",
+    nextTitle: "After launch, focus on real-world use.",
     nextBody:
-      "The roadmap lists work already present in release checks and maintenance plans. It does not advertise features that have not started.",
+      "Next work covers provider behavior, difficult webpages, accessibility, and Skill compatibility. Completed work moves into the changelog.",
     nextLink: "View the roadmap",
     footerNote: "Ask the current page.",
   },
@@ -332,7 +334,7 @@ export default function ChangelogPage() {
         </div>
         <div className={styles.heroStamp}>
           <span>{copy.releaseStatus}</span>
-          <strong>RC</strong>
+          <strong>{copy.releaseBadge}</strong>
           <small>{copy.releaseDate}</small>
         </div>
       </section>

@@ -5,6 +5,8 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 type Language = "zh" | "en";
 
 const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+const STORE_URL =
+  "https://chromewebstore.google.com/detail/tabtell/meapdcifnfnkaceamkbjoebohiippbeo";
 
 function sitePath(path: string): string {
   return `${BASE_PATH}${path}`;
@@ -27,17 +29,17 @@ const COPY = {
     homeLabel: "TabTell 首页",
     primaryNavigation: "主导航",
     languageLabel: "语言",
-    navProduct: "产品",
+    navProduct: "安装",
     navGuide: "使用指南",
     navChangelog: "更新日志",
-    navRoadmap: "正在开发",
+    navRoadmap: "路线图",
     navPrivacy: "隐私",
     eyebrow: "当前网页 · 连续对话",
     title: "打开网页，\n直接开聊",
     intro:
       "在支持读取的网页上发起 AI 对话，让信息检索、阅读和创作更直接。问题和原文留在同一份上下文里。",
+    installCta: "安装 TabTell",
     guideCta: "5 分钟上手",
-    storeStatus: "Chrome Web Store · 准备上线",
     trust: ["自带 API Key", "记录保存在浏览器", "无中转服务器"],
     quickstartTitle: "第一次使用，只需要三步",
     quickstart: [
@@ -104,7 +106,7 @@ const COPY = {
     modelLink: "指南：连接第一个模型",
     changelogKicker: "更新日志",
     changelogTitle: "TabTell 3.0.0",
-    changelogDate: "2026-07-28 · 发布候选",
+    changelogDate: "2026-07-30 · Chrome Web Store 首发",
     changelogBody:
       "逐页工作区、流式 Markdown、切换标签页仍继续生成、模型供应商预设、快捷处理、开放格式 Skills 和配置迁移，都在这次版本里。",
     changelogLink: "查看完整更新日志",
@@ -115,8 +117,8 @@ const COPY = {
     roadmap: [
       {
         index: "01",
-        title: "正在进行",
-        body: "完成 Chrome Web Store 首次发布，复核最终安装包和公开页面。",
+        title: "已经上线",
+        body: "TabTell 3.0.0 已在 Chrome Web Store 发布，可以直接安装。",
       },
       {
         index: "02",
@@ -129,7 +131,7 @@ const COPY = {
         body: "跟进供应商接口、推荐模型、Chrome 权限政策和 Skills 格式。",
       },
     ],
-    roadmapLink: "查看正在开发",
+    roadmapLink: "查看路线图",
     privacyKicker: "本地优先",
     privacyTitle: "不需要 TabTell 账号，也没有中转服务器。",
     privacyBody:
@@ -152,17 +154,17 @@ const COPY = {
     homeLabel: "TabTell home",
     primaryNavigation: "Primary navigation",
     languageLabel: "Language",
-    navProduct: "Product",
+    navProduct: "Install",
     navGuide: "Guide",
     navChangelog: "Changelog",
-    navRoadmap: "In progress",
+    navRoadmap: "Roadmap",
     navPrivacy: "Privacy",
     eyebrow: "Current page · Continuous conversation",
     title: "Open a page.\nStart talking.",
     intro:
       "Start an AI conversation on supported webpages. Keep retrieval, reading, and writing grounded in the source already open in your tab.",
+    installCta: "Install TabTell",
     guideCta: "Start in 5 minutes",
-    storeStatus: "Chrome Web Store · Coming soon",
     trust: ["Bring your own API key", "Records stay in this browser", "No relay server"],
     quickstartTitle: "Your first conversation takes three steps",
     quickstart: [
@@ -229,7 +231,7 @@ const COPY = {
     modelLink: "Guide: connect your first model",
     changelogKicker: "Changelog",
     changelogTitle: "TabTell 3.0.0",
-    changelogDate: "2026-07-28 · Release candidate",
+    changelogDate: "2026-07-30 · Chrome Web Store launch",
     changelogBody:
       "Page-scoped workspaces, streamed Markdown, generation that continues across tab switches, provider presets, quick actions, portable Skills, and configuration migration arrive together.",
     changelogLink: "Read the full changelog",
@@ -240,8 +242,8 @@ const COPY = {
     roadmap: [
       {
         index: "01",
-        title: "In progress",
-        body: "Finish the first Chrome Web Store release and verify the final package and public pages.",
+        title: "Now available",
+        body: "TabTell 3.0.0 is live in the Chrome Web Store and ready to install.",
       },
       {
         index: "02",
@@ -254,7 +256,7 @@ const COPY = {
         body: "Track provider APIs, recommended models, Chrome policies, and portable Skill formats.",
       },
     ],
-    roadmapLink: "See what is in progress",
+    roadmapLink: "View the roadmap",
     privacyKicker: "Local first",
     privacyTitle: "No TabTell account. No relay server.",
     privacyBody:
@@ -307,7 +309,9 @@ export default function Home() {
         </a>
         <nav aria-label={copy.primaryNavigation}>
           <div className="nav-links">
-            <a href="#product">{copy.navProduct}</a>
+            <a href={STORE_URL} target="_blank" rel="noreferrer">
+              {copy.navProduct}
+            </a>
             <a href={guideHref} target="_blank" rel="noreferrer">
               {copy.navGuide}
             </a>
@@ -348,13 +352,20 @@ export default function Home() {
           <div className="hero-actions">
             <a
               className="primary-link"
+              href={STORE_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {copy.installCta}
+            </a>
+            <a
+              className="store-status"
               href={guideHref}
               target="_blank"
               rel="noreferrer"
             >
               {copy.guideCta}
             </a>
-            <span className="store-status">{copy.storeStatus}</span>
           </div>
           <ul className="trust-list" aria-label={copy.trust.join("、")}>
             {copy.trust.map((item) => (
@@ -451,7 +462,7 @@ export default function Home() {
         <article className="information-panel changelog-panel">
           <p className="section-tab">{copy.changelogKicker}</p>
           <h2>{copy.changelogTitle}</h2>
-          <time dateTime="2026-07-28">{copy.changelogDate}</time>
+          <time dateTime="2026-07-30">{copy.changelogDate}</time>
           <p>{copy.changelogBody}</p>
           <a href={sitePath("/changelog/")}>{copy.changelogLink}</a>
         </article>
@@ -522,6 +533,9 @@ export default function Home() {
           <strong>{copy.footerResources}</strong>
           <a href={guideHref} target="_blank" rel="noreferrer">
             {copy.navGuide}
+          </a>
+          <a href={STORE_URL} target="_blank" rel="noreferrer">
+            {copy.installCta}
           </a>
           <a href={sitePath("/changelog/")}>{copy.navChangelog}</a>
           <a href={sitePath("/roadmap/")}>{copy.navRoadmap}</a>
